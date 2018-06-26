@@ -12,14 +12,14 @@ The analysis for this project was performed in MySQL.
 
 Data exploration was performed by running a SQL script file `yelp_sql_code.sql` in which we included the code discussed in detail below.  In order to run the script, we execute the following lines of code:
 
-```mysql
+```sql
 mysql> use yelp_db
 mysql> source /Users/eagronin/Documents/Data Science/Portfolio/Project Code/yelp_sql_code.sql
 ```
 
 The output was automatically recorded into an output file `yelp_output.txt`.  This was accomplished by adding 
 
-```mysql
+```sql
 tee /Users/eagronin/Documents/Data Science/Portfolio/Project Code/yelp_output.txt
 ```
 
@@ -29,7 +29,7 @@ in the beginning and `notee` in the end of `yelp_sql_code.sql`.
 
 The following code profiles the data by finding the total number of records for each of the tables in the database:
 
-```mysql
+```sql
 select count(*) from Attribute;
 select count(*) from Business;
 select count(*) from Category;
@@ -62,7 +62,7 @@ The number of records for each of the tables is summarized below:
 
 Next we check if there are any NULL values in the Users table:
 
-```mysql
+```sql
 select id from user where id is NULL;
 select id from user where name is NULL;
 select id from user where review_count is NULL;
@@ -114,7 +114,7 @@ The output below shows that there are no NULL values in the user table:
 
 To find the minimum, maximum, and average value for selected features listed in the output table below, we run the following code: 
 
-```mysql
+```sql
 select min(stars), max(stars), avg(stars) from review;
 select min(stars), max(stars), avg(stars) from business;
 select min(likes), max(likes), avg(likes) from tip;
@@ -135,7 +135,7 @@ The output is summarized in the table below:
 
 In order to identify the cities with the most reviews, we list top 25 cities in terms of the number of reviews in descending order:
 
-```mysql
+```sql
 select city, sum(review_count) as all_review_count
 from business
 group by city
@@ -181,7 +181,7 @@ This generated the following output:
 
 Next we will look into the distribution of star ratings to the business in two cities, Avon and Beachwood:
 
-```mysql
+```sql
 select stars, count(id) as number_of_businesses
 from business
 where city = 'Avon'
@@ -234,7 +234,7 @@ Output for Beachwood:
 
 The code below outputs the top 3 users based on their total number of reviews: 
 
-```mysql
+```sql
 select id
        ,name
        ,review_count
@@ -258,7 +258,7 @@ The code generated the following output:
 
 Are there more reviews with the word "love" or with the word "hate" in them?  The code below performs counts for each of the two words:
 
-```mysql
+```sql
 select count(id) as number_of_reviews
 from review
 where text like '%love%';
@@ -278,7 +278,7 @@ The output below shows that the number of reviews with the word "love" is substa
 
 The following code lists the top 10 users with the most fans:
 
-```mysql
+```sql
 select id, name, fans
 from user
 order by fans desc
@@ -310,7 +310,7 @@ Part 2: Inferences and Analysis
 
 Next, we group restaurants in the city with the largest number of reviews (which is Las Vegas as the analysis above shows) by their overall star rating. Then we compare the restaurants with 2-3 stars to the restaurants with 4-5 stars in terms of the number of revews:
 	
-```mysql
+```sql
 select city
        ,category
        ,avg(review_count) as av_rev_count			-- number of reviews per business within each group
@@ -346,7 +346,7 @@ The output below shows that restaurants with 4-5 stars have a substantially larg
 
 We also would like to see the number of stars and number of reviews for open and closed business: 
 
-```mysql
+```sql
 select is_open
        ,count(id) as num_of_businesses
        ,avg(stars) as stars_per_business
@@ -381,7 +381,7 @@ low quality businesses);
 
 The code below extracts the data requred for this analysis:
 
-```mysql
+```sql
 select review.id as review_id           -- review variables
        ,review.stars
        ,review.date as review_date
