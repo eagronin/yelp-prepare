@@ -306,7 +306,7 @@ The code generated the following output:
 
 Next, we group restaurants in the city with the largest number of reviews (which is Las Vegas as the analysis above shows) by their overall star rating. Then we compare the restaurants with 2-3 stars to the restaurants with 4-5 stars in terms of the number of revews:
 	
-```sqlpl
+```python
 select city
        ,category
        ,avg(review_count) as av_rev_count			-- number of reviews per business within each group
