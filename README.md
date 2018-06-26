@@ -25,7 +25,7 @@ tee /Users/eagronin/Documents/Data Science/Portfolio/Project Code/yelp_output.tx
 
 in the beginning and `notee` in the end of `yelp_sql_code.sql`.
 
-# Yelp Dataset Profiling and Understanding
+## Yelp Dataset Profiling and Understanding
 
 The following code profiles the data by finding the total number of records for each of the tables in the database:
 
@@ -86,7 +86,6 @@ select id from user where compliment_photos is NULL;
 ```
 
 The output below shows that there are no NULL values in the user table:
-
 
 | Feature Name | No. NULL Values |
 |:--- |:---:|
@@ -305,9 +304,6 @@ The code generated the following output:
 10 rows in set (0.70 sec)
 ```
 
-
-Part 2: Inferences and Analysis
-
 Next, we group restaurants in the city with the largest number of reviews (which is Las Vegas as the analysis above shows) by their overall star rating. Then we compare the restaurants with 2-3 stars to the restaurants with 4-5 stars in terms of the number of revews:
 	
 ```sql
@@ -342,7 +338,6 @@ The output below shows that restaurants with 4-5 stars have a substantially larg
 +-----------+-------------+--------------+-------------------+------------+
 3 rows in set (0.26 sec)
 ```
-
 
 We also would like to see the number of stars and number of reviews for open and closed business: 
 
