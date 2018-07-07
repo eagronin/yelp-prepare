@@ -366,7 +366,7 @@ As the final step, we prepare data for predictive modeling of the effect of user
 users assign in their reviews. The dependent variable (or the target) in this classification analysis is the number of stars that a business gets in a review. The features are:
 
 1. The amount of time that the user has been yelping, defined as the difference between the review date and yelping_since date (the number of stars may depend on user yelping experience);
-2. The average number of stars assigned by the user (to multiple businesses), i.e. average_stars (whether the user is a soft or hard grader or, alternatively, whether the user lives in an area in which businesses are of particularly high or particularly low quality);
+2. The average number of stars assigned by the user (to multiple businesses), i.e. average_stars (whether the user is a soft or hard grader or, alternatively, whether the user lives in an area in which businesses are of a particularly high or a particularly low quality);
 3. The total number of reviews provided by the user (representing both user yelping experience and user engagement level);
 4. The number of fans that the user has (do hard or soft graders have more fans?);
 5. The number of people who found the user useful or funny or cool.
