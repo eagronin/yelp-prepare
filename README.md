@@ -111,7 +111,7 @@ The output below shows that there are no NULL values in the user table:
 | compliment_photos | - |
 
 
-To find the minimum, maximum, and average value for selected features listed in the output table below, we run the following code: 
+To find the minimum, maximum, and average value for selected features, which include `stars`, `likes`, and `counts` from different tables, we run the following code: 
 
 ```sql
 select min(stars), max(stars), avg(stars) from review;
