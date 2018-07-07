@@ -142,7 +142,7 @@ order by all_review_count desc
 limit 25;
 ```
 
-This generated the following output:
+The output is shown below:
 
 ```
 +-----------------+------------------+
@@ -178,7 +178,7 @@ This generated the following output:
 ```
 
 
-Next we will look into the distribution of star ratings to the business in two cities, Avon and Beachwood:
+Next, we will look into the distribution of star ratings to the business in two cities, Avon and Beachwood:
 
 ```sql
 select stars, count(id) as number_of_businesses
@@ -267,7 +267,7 @@ from review
 where text like '%hate%';
 ```
 
-The output below shows that the number of reviews with the word "love" is substantially large than the number of reviews with the word "hate":
+The output below shows that the number of reviews with the word "love" is substantially larger than the number of reviews with the word "hate":
 
 | Word | No. Reviews Containing the Word |
 |:--- | ---:|
@@ -284,7 +284,7 @@ order by fans desc
 limit 10;
 ```
 
-The code generated the following output:
+The results are shown below:
 
 ```
 +------------------------+-----------+------+
@@ -351,7 +351,7 @@ from business
 group by is_open;
 ```
 
-It is intuitive that open businesses have, on average, a larger number of stars as the output below shows, because it is easier for better / highly rated resaurants to survive.  The number of reveiws is also larger for the open business, likely for two reasons: first, highly rated businesses tend to have more customers (and hence more reviews) and second, time could have elapsed between the closure of the closed business and extraction of the Yelp dataset, during which open businesses continued accumulating reviews, while closed businesses no longer accumulated any reviews.
+It is intuitive that open businesses have, on average, a larger number of stars as the output below shows, because it is easier for better / highly rated resaurants to survive.  The number of reveiws is also larger for open businesses, likely for two reasons: first, highly rated businesses tend to have more customers (and hence more reviews) and second, time could have elapsed between the closure of closed businesses and extraction of the Yelp dataset, during which open businesses continued accumulating reviews, while closed businesses no longer accumulated any reviews.
 
 ```
 +---------+-------------------+--------------------+--------------------------+
@@ -365,12 +365,9 @@ It is intuitive that open businesses have, on average, a larger number of stars 
 As the final step, we prepare data for predictive modeling of the effect of user characteristics on the number of stars that 
 users assign in their reviews. The dependent variable (or the target) in this classification analysis is the number of stars that a business gets in a review. The features are:
 
-1. The amount of time that the user has been yelping, defined as the difference between the review date and 
-yelping_since date (the number of stars may depend on the user's experience);
-2. The average number of stars assigned by the user (to multiple businesses), i.e. average_stars (whether the user is 
-a soft or hard grader or, alternatively, whether the user lives in an area with particularly high or particularly 
-low quality businesses);
-3. The total number of reviews provided by the user (representing user experience and also user engagement level);
+1. The amount of time that the user has been yelping, defined as the difference between the review date and yelping_since date (the number of stars may depend on user yelping experience);
+2. The average number of stars assigned by the user (to multiple businesses), i.e. average_stars (whether the user is a soft or hard grader or, alternatively, whether the user lives in an area in which businesses are of particularly high or particularly low quality);
+3. The total number of reviews provided by the user (representing both user yelping experience and user engagement level);
 4. The number of fans that the user has (do hard or soft graders have more fans?);
 5. The number of people who found the user useful or funny or cool.
 
