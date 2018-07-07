@@ -121,7 +121,7 @@ select min(count), max(count), avg(count) from checkin;
 select min(review_count), max(review_count), avg(review_count) from user;
 ```
 
-The output is summarized in the table below:
+The the above code generates the following output:
 
 | Table | Column | Min | Max | Average |
 |:--- |:--- |:---:| ---:| ---:|
