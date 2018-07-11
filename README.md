@@ -60,7 +60,7 @@ The number of records for each of the tables is summarized below:
 | user table | 1,326,101 | 
 
 
-Next we check if there are any NULL values in the Users table:
+Next, we check if there are any NULL values in the Users table:
 
 ```sql
 select id from user where id is NULL;
@@ -121,7 +121,7 @@ select min(count), max(count), avg(count) from checkin;
 select min(review_count), max(review_count), avg(review_count) from user;
 ```
 
-The the above code generates the following output:
+The above code generates the following output:
 
 | Table | Column | Min | Max | Average |
 |:--- |:--- |:---:| ---:| ---:|
@@ -304,7 +304,7 @@ The results are shown below:
 10 rows in set (0.70 sec)
 ```
 
-Next, we group restaurants in the city with the largest number of reviews (which is Las Vegas as the analysis above shows) by their overall star rating. Then we compare the restaurants with 2-3 stars to the restaurants with 4-5 stars in terms of the number of revews:
+Next, we group restaurants in the city with the largest number of reviews (which is Las Vegas as the analysis above shows) by their overall star rating. Then we compare the restaurants with 2-3 stars to the restaurants with 4-5 stars in terms of the number of reviews:
 	
 ```sql
 select city
@@ -326,7 +326,7 @@ where city = 'Las Vegas' and category = 'Restaurants'
 group by star_group;
 ```
 
-The output below shows that restaurants with 4-5 stars have a substantially larger number of reviews compared to restaurnats with 2-3 stars.  This makes sense as better / highly rated restauarnats likely have a larger number of customers.
+The output below shows that restaurants with 4-5 stars have a substantially larger number of reviews compared to restaurants with 2-3 stars.  This makes sense as better / highly rated restaurants likely have a larger number of customers.
 
 ```
 +-----------+-------------+--------------+-------------------+------------+
@@ -351,7 +351,7 @@ from business
 group by is_open;
 ```
 
-It is intuitive that open businesses have, on average, a larger number of stars as the output below shows, because it is easier for better / highly rated resaurants to survive.  The number of reveiws is also larger for open businesses, likely for two reasons: first, highly rated businesses tend to have more customers (and hence more reviews) and second, time could have elapsed between the closure of closed businesses and extraction of the Yelp dataset, during which open businesses continued accumulating reviews, while closed businesses no longer accumulated any reviews.
+It is intuitive that open businesses have, on average, a larger number of stars as the output below shows, because it is easier for better / highly rated restaurants to survive.  The number of reviews is also larger for open businesses, likely for two reasons: first, highly rated businesses tend to have more customers (and hence more reviews) and second, time could have elapsed between the closure of closed businesses and extraction of the Yelp dataset, during which open businesses continued accumulating reviews, while closed businesses no longer accumulated any reviews.
 
 ```
 +---------+-------------------+--------------------+--------------------------+
@@ -371,7 +371,7 @@ users assign in their reviews. The dependent variable (or the target) in this cl
 4. The number of fans that the user has (do hard or soft graders have more fans?);
 5. The number of people who found the user useful or funny or cool.
 
-The code below extracts the data requred for this analysis:
+The code below extracts the data required for this analysis:
 
 ```sql
 select review.id as review_id           -- review variables
